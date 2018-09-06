@@ -33,7 +33,8 @@ except ImportError:
     from ansible.module_utils.compat.ipaddress import ip_network
 
 
-def is_valid_ip(addr, type='all'):
+def is_valid_ip(f5_addr, type='all'):
+    addr = f5_addr.split("%")[0] # remove potentional route domain from ipadress
     if type in ['all', 'ipv4']:
         if validate_ip_address(addr):
             return True
