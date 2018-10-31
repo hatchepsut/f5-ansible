@@ -25,7 +25,7 @@ Requirements
 ~~~~~~~~~~~~
 The below requirements are needed on the host that executes this module.
 
-- f5-sdk >= 3.0.9
+- f5-sdk >= 3.0.16
 
 
 Parameters
@@ -57,6 +57,21 @@ Parameters
                                                                                                                                                                                                 <li>fasthttp-profiles</li>
                                                                                                                                                                                                 <li>fastl4-profiles</li>
                                                                                                                                                                                                 <li>gateway-icmp-monitors</li>
+                                                                                                                                                                                                <li>gtm-pools</li>
+                                                                                                                                                                                                <li>gtm-servers</li>
+                                                                                                                                                                                                <li>gtm-wide-ips</li>
+                                                                                                                                                                                                <li>gtm-a-pools</li>
+                                                                                                                                                                                                <li>gtm-a-wide-ips</li>
+                                                                                                                                                                                                <li>gtm-aaaa-pools</li>
+                                                                                                                                                                                                <li>gtm-aaaa-wide-ips</li>
+                                                                                                                                                                                                <li>gtm-cname-pools</li>
+                                                                                                                                                                                                <li>gtm-cname-wide-ips</li>
+                                                                                                                                                                                                <li>gtm-mx-pools</li>
+                                                                                                                                                                                                <li>gtm-mx-wide-ips</li>
+                                                                                                                                                                                                <li>gtm-naptr-pools</li>
+                                                                                                                                                                                                <li>gtm-naptr-wide-ips</li>
+                                                                                                                                                                                                <li>gtm-srv-pools</li>
+                                                                                                                                                                                                <li>gtm-srv-wide-ips</li>
                                                                                                                                                                                                 <li>http-monitors</li>
                                                                                                                                                                                                 <li>https-monitors</li>
                                                                                                                                                                                                 <li>http-profiles</li>
@@ -101,6 +116,21 @@ Parameters
                                                                                                                                                                                                 <li>!fasthttp-profiles</li>
                                                                                                                                                                                                 <li>!fastl4-profiles</li>
                                                                                                                                                                                                 <li>!gateway-icmp-monitors</li>
+                                                                                                                                                                                                <li>!gtm-pools</li>
+                                                                                                                                                                                                <li>!gtm-servers</li>
+                                                                                                                                                                                                <li>!gtm-wide-ips</li>
+                                                                                                                                                                                                <li>!gtm-a-pools</li>
+                                                                                                                                                                                                <li>!gtm-a-wide-ips</li>
+                                                                                                                                                                                                <li>!gtm-aaaa-pools</li>
+                                                                                                                                                                                                <li>!gtm-aaaa-wide-ips</li>
+                                                                                                                                                                                                <li>!gtm-cname-pools</li>
+                                                                                                                                                                                                <li>!gtm-cname-wide-ips</li>
+                                                                                                                                                                                                <li>!gtm-mx-pools</li>
+                                                                                                                                                                                                <li>!gtm-mx-wide-ips</li>
+                                                                                                                                                                                                <li>!gtm-naptr-pools</li>
+                                                                                                                                                                                                <li>!gtm-naptr-wide-ips</li>
+                                                                                                                                                                                                <li>!gtm-srv-pools</li>
+                                                                                                                                                                                                <li>!gtm-srv-wide-ips</li>
                                                                                                                                                                                                 <li>!http-monitors</li>
                                                                                                                                                                                                 <li>!https-monitors</li>
                                                                                                                                                                                                 <li>!http-profiles</li>
@@ -150,7 +180,8 @@ Parameters
                                 <td>
                                                                                                                                                             </td>
                                                                 <td>
-                                                                        <div>The password for the user account used to connect to the BIG-IP. You can omit this option if the environment variable <code>F5_PASSWORD</code> is set.</div>
+                                                                        <div>The password for the user account used to connect to the BIG-IP.</div>
+                                                    <div>You may omit this option by setting the environment variable <code>F5_PASSWORD</code>.</div>
                                                                                         <div style="font-size: small; color: darkgreen"><br/>aliases: pass, pwd</div>
                                     </td>
             </tr>
@@ -159,7 +190,8 @@ Parameters
                     <b>provider</b>
                                         <br/><div style="font-size: small; color: darkgreen">(added in 2.5)</div>                </td>
                                 <td>
-                                                                                                                                                            </td>
+                                                                                                                                                                    <b>Default:</b><br/><div style="color: blue">None</div>
+                                    </td>
                                                                 <td>
                                                                         <div>A dict object containing connection details.</div>
                                                                                 </td>
@@ -172,7 +204,8 @@ Parameters
                                 <td>
                                                                                                                                                             </td>
                                                                 <td>
-                                                                        <div>The password for the user account used to connect to the BIG-IP. You can omit this option if the environment variable <code>F5_PASSWORD</code> is set.</div>
+                                                                        <div>The password for the user account used to connect to the BIG-IP.</div>
+                                                    <div>You may omit this option by setting the environment variable <code>F5_PASSWORD</code>.</div>
                                                                                         <div style="font-size: small; color: darkgreen"><br/>aliases: pass, pwd</div>
                                     </td>
             </tr>
@@ -184,7 +217,8 @@ Parameters
                                 <td>
                                                                                                                                                             </td>
                                                                 <td>
-                                                                        <div>The BIG-IP host. You can omit this option if the environment variable <code>F5_SERVER</code> is set.</div>
+                                                                        <div>The BIG-IP host.</div>
+                                                    <div>You may omit this option by setting the environment variable <code>F5_SERVER</code>.</div>
                                                                                 </td>
             </tr>
                                 <tr>
@@ -196,7 +230,8 @@ Parameters
                                                                                                                                                                     <b>Default:</b><br/><div style="color: blue">443</div>
                                     </td>
                                                                 <td>
-                                                                        <div>The BIG-IP server port. You can omit this option if the environment variable <code>F5_SERVER_PORT</code> is set.</div>
+                                                                        <div>The BIG-IP server port.</div>
+                                                    <div>You may omit this option by setting the environment variable <code>F5_SERVER_PORT</code>.</div>
                                                                                 </td>
             </tr>
                                 <tr>
@@ -207,7 +242,8 @@ Parameters
                                 <td>
                                                                                                                                                             </td>
                                                                 <td>
-                                                                        <div>The username to connect to the BIG-IP with. This user must have administrative privileges on the device. You can omit this option if the environment variable <code>F5_USER</code> is set.</div>
+                                                                        <div>The username to connect to the BIG-IP with. This user must have administrative privileges on the device.</div>
+                                                    <div>You may omit this option by setting the environment variable <code>F5_USER</code>.</div>
                                                                                 </td>
             </tr>
                                 <tr>
@@ -216,13 +252,14 @@ Parameters
                     <b>validate_certs</b>
                                                         </td>
                                 <td>
-                                                                                                                                                                        <ul><b>Choices:</b>
+                                                                                                                                                                                                                    <ul><b>Choices:</b>
                                                                                                                                                                 <li>no</li>
                                                                                                                                                                                                 <li><div style="color: blue"><b>yes</b>&nbsp;&larr;</div></li>
                                                                                     </ul>
                                                                             </td>
                                                                 <td>
-                                                                        <div>If <code>no</code>, SSL certificates will not be validated. Use this only on personally controlled sites using self-signed certificates. You can omit this option if the environment variable <code>F5_VALIDATE_CERTS</code> is set.</div>
+                                                                        <div>If <code>no</code>, SSL certificates are not validated. Use this only on personally controlled sites using self-signed certificates.</div>
+                                                    <div>You may omit this option by setting the environment variable <code>F5_VALIDATE_CERTS</code>.</div>
                                                                                 </td>
             </tr>
                                 <tr>
@@ -245,7 +282,8 @@ Parameters
                                 <td>
                                                                                                                                                             </td>
                                                                 <td>
-                                                                        <div>Specifies the SSH keyfile to use to authenticate the connection to the remote device.  This argument is only used for <em>cli</em> transports. If the value is not specified in the task, the value of environment variable <code>ANSIBLE_NET_SSH_KEYFILE</code> will be used instead.</div>
+                                                                        <div>Specifies the SSH keyfile to use to authenticate the connection to the remote device.  This argument is only used for <em>cli</em> transports.</div>
+                                                    <div>You may omit this option by setting the environment variable <code>ANSIBLE_NET_SSH_KEYFILE</code>.</div>
                                                                                 </td>
             </tr>
                                 <tr>
@@ -271,7 +309,8 @@ Parameters
                                 <td>
                                                                                                                                                             </td>
                                                                 <td>
-                                                                        <div>The BIG-IP host. You can omit this option if the environment variable <code>F5_SERVER</code> is set.</div>
+                                                                        <div>The BIG-IP host.</div>
+                                                    <div>You may omit this option by setting the environment variable <code>F5_SERVER</code>.</div>
                                                                                 </td>
             </tr>
                                 <tr>
@@ -282,7 +321,8 @@ Parameters
                                                                                                                                                                     <b>Default:</b><br/><div style="color: blue">443</div>
                                     </td>
                                                                 <td>
-                                                                        <div>The BIG-IP server port. You can omit this option if the environment variable <code>F5_SERVER_PORT</code> is set.</div>
+                                                                        <div>The BIG-IP server port.</div>
+                                                    <div>You may omit this option by setting the environment variable <code>F5_SERVER_PORT</code>.</div>
                                                                                 </td>
             </tr>
                                 <tr>
@@ -292,7 +332,8 @@ Parameters
                                 <td>
                                                                                                                                                             </td>
                                                                 <td>
-                                                                        <div>The username to connect to the BIG-IP with. This user must have administrative privileges on the device. You can omit this option if the environment variable <code>F5_USER</code> is set.</div>
+                                                                        <div>The username to connect to the BIG-IP with. This user must have administrative privileges on the device.</div>
+                                                    <div>You may omit this option by setting the environment variable <code>F5_USER</code>.</div>
                                                                                 </td>
             </tr>
                                 <tr>
@@ -300,13 +341,14 @@ Parameters
                     <b>validate_certs</b>
                                         <br/><div style="font-size: small; color: darkgreen">(added in 2.0)</div>                </td>
                                 <td>
-                                                                                                                                                                        <ul><b>Choices:</b>
+                                                                                                                                                                                                                    <ul><b>Choices:</b>
                                                                                                                                                                 <li>no</li>
                                                                                                                                                                                                 <li><div style="color: blue"><b>yes</b>&nbsp;&larr;</div></li>
                                                                                     </ul>
                                                                             </td>
                                                                 <td>
-                                                                        <div>If <code>no</code>, SSL certificates will not be validated. Use this only on personally controlled sites using self-signed certificates. You can omit this option if the environment variable <code>F5_VALIDATE_CERTS</code> is set.</div>
+                                                                        <div>If <code>no</code>, SSL certificates are not validated. Use this only on personally controlled sites using self-signed certificates.</div>
+                                                    <div>You may omit this option by setting the environment variable <code>F5_VALIDATE_CERTS</code>.</div>
                                                                                 </td>
             </tr>
                         </table>
@@ -319,6 +361,8 @@ Notes
 .. note::
     - For more information on using Ansible to manage F5 Networks devices see https://www.ansible.com/integrations/networks/f5.
     - Requires the f5-sdk Python package on the host. This is as easy as ``pip install f5-sdk``.
+    - Requires BIG-IP software version >= 12.
+    - The F5 modules only manipulate the running configuration of the F5 product. To ensure that BIG-IP specific configuration persists to disk, be sure to include at least one task that uses the :ref:`bigip_config <bigip_config_module>` module to save the running configuration. Refer to the module's documentation for the correct usage of the module to save your running configuration.
 
 
 Examples
@@ -330,7 +374,7 @@ Examples
     - name: Collect BIG-IP facts
       bigip_device_facts:
         gather_subset:
-          - interface
+          - interfaces
           - vlans
         provider:
           server: lb.mydomain.com
@@ -378,6 +422,9 @@ Common return values are documented `here <https://docs.ansible.com/ansible/late
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
@@ -3107,6 +3154,875 @@ Common return values are documented `here <https://docs.ansible.com/ansible/late
                 <td></td>
                 <td>
                                                                         <div>Specifies, in seconds, the frequency at which the system issues the monitor check when the resource is up.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                    
+                                                <tr>
+                                <td colspan="4">
+                    <b>gtm_pools</b>
+                    <br/><div style="font-size: small; color: red">complex</div>
+                </td>
+                <td>When any of <code>gtm-pools</code> or <code>gtm-*-pools</code> is specified in <code>gather_subset</code>.</td>
+                <td>
+                                                                        <div>GTM pool related facts.</div>
+                                                    <div>Every &quot;type&quot; of pool has the exact same list of possible facts. Therefore, the list of facts here is presented once instead of 6 times.</div>
+                                                                <br/>
+                                            <div style="font-size: smaller"><b>Sample:</b></div>
+                                                <div style="font-size: smaller; color: blue; word-wrap: break-word; word-break: break-all;">hash/dictionary of values</div>
+                                    </td>
+            </tr>
+                                                            <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>full_path</b>
+                    <br/><div style="font-size: small; color: red">string</div>
+                </td>
+                <td>changed</td>
+                <td>
+                                                                        <div>Full name of the resource as known to BIG-IP.</div>
+                                                                <br/>
+                                            <div style="font-size: smaller"><b>Sample:</b></div>
+                                                <div style="font-size: smaller; color: blue; word-wrap: break-word; word-break: break-all;">/Common/pool1</div>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>name</b>
+                    <br/><div style="font-size: small; color: red">string</div>
+                </td>
+                <td>changed</td>
+                <td>
+                                                                        <div>Relative name of the resource in BIG-IP.</div>
+                                                                <br/>
+                                            <div style="font-size: smaller"><b>Sample:</b></div>
+                                                <div style="font-size: smaller; color: blue; word-wrap: break-word; word-break: break-all;">pool1</div>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>alternate_mode</b>
+                    <br/><div style="font-size: small; color: red">string</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>The load balancing mode that the system uses to load balance name resolution requests among the members of the pool.</div>
+                                                                <br/>
+                                            <div style="font-size: smaller"><b>Sample:</b></div>
+                                                <div style="font-size: smaller; color: blue; word-wrap: break-word; word-break: break-all;">drop-packet</div>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>dynamic_ratio</b>
+                    <br/><div style="font-size: small; color: red">bool</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Whether or not the dynamic ratio load balancing algorithm is enabled for this pool.</div>
+                                                                <br/>
+                                            <div style="font-size: smaller"><b>Sample:</b></div>
+                                                <div style="font-size: smaller; color: blue; word-wrap: break-word; word-break: break-all;">True</div>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>enabled</b>
+                    <br/><div style="font-size: small; color: red">bool</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Is the pool enabled.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>disabled</b>
+                    <br/><div style="font-size: small; color: red">bool</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Is the pool disabled</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>fallback_mode</b>
+                    <br/><div style="font-size: small; color: red">string</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Specifies the load balancing mode that the system uses to load balance name resolution amongst the pool members if the preferred and alternate modes are unsuccessful in picking a pool.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>load_balancing_mode</b>
+                    <br/><div style="font-size: small; color: red">string</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Specifies the preferred load balancing mode that the system uses to load balance requests across pool members.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>manual_resume</b>
+                    <br/><div style="font-size: small; color: red">bool</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Whether manual resume is enabled for this pool</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>max_answers_returned</b>
+                    <br/><div style="font-size: small; color: red">int</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Maximum number of available virtual servers that the system lists in a response.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>members</b>
+                    <br/><div style="font-size: small; color: red">complex</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Lists of members (and their configurations) in the pool.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>partition</b>
+                    <br/><div style="font-size: small; color: red"></div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Partition the pool exists on.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>qos_hit_ratio</b>
+                    <br/><div style="font-size: small; color: red">int</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Weight of the Hit Ratio performance factor for the QoS dynamic load balancing method</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>qos_hops</b>
+                    <br/><div style="font-size: small; color: red">int</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Weight of the Hops performance factor when load balancing mode or fallback mode is QoS.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>qos_kilobytes_second</b>
+                    <br/><div style="font-size: small; color: red">int</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Weight assigned to Kilobytes per Second performance factor when load balancing option is QoS.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>qos_lcs</b>
+                    <br/><div style="font-size: small; color: red">int</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Weight assign to the Link Capacity performance factor when load balacing option is QoS.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>qos_packet_rate</b>
+                    <br/><div style="font-size: small; color: red">int</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Weight assign to the Packet Rate performance factor when load balacing option is QoS.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>qos_rtt</b>
+                    <br/><div style="font-size: small; color: red">int</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Weight assign to the Round Trip Time performance factor when load balacing option is QoS.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>qos_topology</b>
+                    <br/><div style="font-size: small; color: red">int</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Weight assign to the Topology performance factor when load balacing option is QoS.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>qos_vs_capacity</b>
+                    <br/><div style="font-size: small; color: red">int</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Weight assign to the Virtual Server performance factor when load balacing option is QoS.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>qos_vs_score</b>
+                    <br/><div style="font-size: small; color: red">int</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Weight assign to the Virtual Server Score performance factor when load balacing option is QoS.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>ttl</b>
+                    <br/><div style="font-size: small; color: red">int</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Number of seconds that the IP address, once found, is valid.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>verify_member_availability</b>
+                    <br/><div style="font-size: small; color: red">bool</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Whether or not the system verifies the availability of the members before sending a connection to them.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                    
+                                                <tr>
+                                <td colspan="4">
+                    <b>gtm_servers</b>
+                    <br/><div style="font-size: small; color: red">complex</div>
+                </td>
+                <td>When <code>gtm-servers</code> is specified in <code>gather_subset</code>.</td>
+                <td>
+                                                                        <div>GTM server related facts.</div>
+                                                                <br/>
+                                            <div style="font-size: smaller"><b>Sample:</b></div>
+                                                <div style="font-size: smaller; color: blue; word-wrap: break-word; word-break: break-all;">hash/dictionary of values</div>
+                                    </td>
+            </tr>
+                                                            <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>full_path</b>
+                    <br/><div style="font-size: small; color: red">string</div>
+                </td>
+                <td>changed</td>
+                <td>
+                                                                        <div>Full name of the resource as known to BIG-IP.</div>
+                                                                <br/>
+                                            <div style="font-size: smaller"><b>Sample:</b></div>
+                                                <div style="font-size: smaller; color: blue; word-wrap: break-word; word-break: break-all;">/Common/server1</div>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>name</b>
+                    <br/><div style="font-size: small; color: red">string</div>
+                </td>
+                <td>changed</td>
+                <td>
+                                                                        <div>Relative name of the resource in BIG-IP.</div>
+                                                                <br/>
+                                            <div style="font-size: smaller"><b>Sample:</b></div>
+                                                <div style="font-size: smaller; color: blue; word-wrap: break-word; word-break: break-all;">server1</div>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>datacenter</b>
+                    <br/><div style="font-size: small; color: red">string</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Full name of the datacenter this server belongs to.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>enabled</b>
+                    <br/><div style="font-size: small; color: red">bool</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Whether the server is enabled.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>disabled</b>
+                    <br/><div style="font-size: small; color: red">bool</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Whether the server is disabled.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>expose_route_domains</b>
+                    <br/><div style="font-size: small; color: red">bool</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Allow the GTM server to auto-discover the LTM virtual servers from all route domains.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>iq_allow_path</b>
+                    <br/><div style="font-size: small; color: red">bool</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Whether the GTM uses this BIG-IP system to conduct a path probe before delegating traffic to it.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>iq_allow_service_check</b>
+                    <br/><div style="font-size: small; color: red">bool</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Whether the GTM uses this BIG-IP system to conduct a service check probe before delegating traffic to it.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>iq_allow_snmp</b>
+                    <br/><div style="font-size: small; color: red">bool</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Whether the GTM uses this BIG-IP system to conduct an SNMP probe before delegating traffic to it.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>limit_cpu_usage</b>
+                    <br/><div style="font-size: small; color: red"></div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>For a server configured as a generic host, specifies the percent of CPU usage, otherwise has no effect.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>limit_cpu_usage_status</b>
+                    <br/><div style="font-size: small; color: red">bool</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Whether <code>limit_cpu_usage</code> is enabled for this server.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>limit_max_bps</b>
+                    <br/><div style="font-size: small; color: red"></div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Maximum allowable data throughput rate in bits per second for this server.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>limit_max_bps_status</b>
+                    <br/><div style="font-size: small; color: red">bool</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Whether <code>limit_max_bps</code> is enabled for this server.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>limit_max_connections</b>
+                    <br/><div style="font-size: small; color: red"></div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Maximum number of concurrent connections, combind, for this server.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>limit_max_connections_status</b>
+                    <br/><div style="font-size: small; color: red">bool</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Whether <code>limit_max_connections</code> is enabled for this server.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>limit_max_pps</b>
+                    <br/><div style="font-size: small; color: red"></div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Maximum allowable data transfer rate, in packets per second, for this server.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>limit_max_pps_status</b>
+                    <br/><div style="font-size: small; color: red">bool</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Whether <code>limit_max_pps</code> is enabled for this server.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>limit_mem_available</b>
+                    <br/><div style="font-size: small; color: red"></div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>For a server configured as a generic host, specifies the available memory required by the virtual servers on the server.</div>
+                                                    <div>If available memory falls below this limit, the system marks the server as unavailable.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>limit_mem_available_status</b>
+                    <br/><div style="font-size: small; color: red">bool</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Whether <code>limit_mem_available</code> is enabled for this server.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>link_discovery</b>
+                    <br/><div style="font-size: small; color: red">string</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Specifies whether the system auto-discovers the links for this server.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>monitors</b>
+                    <br/><div style="font-size: small; color: red">list</div>
+                </td>
+                <td>changed</td>
+                <td>
+                                                                        <div>Specifies health monitors that the system uses to determine whether this server is available for load balancing.</div>
+                                                                <br/>
+                                            <div style="font-size: smaller"><b>Sample:</b></div>
+                                                <div style="font-size: smaller; color: blue; word-wrap: break-word; word-break: break-all;">[&#x27;/Common/https_443&#x27;, &#x27;/Common/icmp&#x27;]</div>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>monitor_type</b>
+                    <br/><div style="font-size: small; color: red">string</div>
+                </td>
+                <td>changed</td>
+                <td>
+                                                                        <div>Whether one or monitors need to pass, or all monitors need to pass.</div>
+                                                                <br/>
+                                            <div style="font-size: smaller"><b>Sample:</b></div>
+                                                <div style="font-size: smaller; color: blue; word-wrap: break-word; word-break: break-all;">and_list</div>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>product</b>
+                    <br/><div style="font-size: small; color: red"></div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Specifies the server type.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>prober_fallback</b>
+                    <br/><div style="font-size: small; color: red"></div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>The type of prober to use to monitor this servers resources when the preferred type is not available.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>prober_preference</b>
+                    <br/><div style="font-size: small; color: red"></div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Specifies the type of prober to use to monitor this servers resources.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>virtual_server_discovery</b>
+                    <br/><div style="font-size: small; color: red">string</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Whether the system auto-discovers the virtual servers for this server.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>addresses</b>
+                    <br/><div style="font-size: small; color: red">complex</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Specifies the server IP addresses for the server.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>devices</b>
+                    <br/><div style="font-size: small; color: red">complex.</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Specifies the names of the devies that represent this server.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>virtual_servers</b>
+                    <br/><div style="font-size: small; color: red">complex</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Virtual servers that are resources for this server.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                    
+                                                <tr>
+                                <td colspan="4">
+                    <b>gtm_wide_ips</b>
+                    <br/><div style="font-size: small; color: red">complex</div>
+                </td>
+                <td>When any of <code>gtm-wide-ips</code> or <code>gtm-*-wide-ips</code> is specified in <code>gather_subset</code>.</td>
+                <td>
+                                                                        <div>GTM Wide IP related facts.</div>
+                                                    <div>Every &quot;type&quot; of wide-ip has the exact same list of possible facts. Therefore, the list of facts here is presented once instead of 6 times.</div>
+                                                                <br/>
+                                            <div style="font-size: smaller"><b>Sample:</b></div>
+                                                <div style="font-size: smaller; color: blue; word-wrap: break-word; word-break: break-all;">hash/dictionary of values</div>
+                                    </td>
+            </tr>
+                                                            <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>full_path</b>
+                    <br/><div style="font-size: small; color: red">string</div>
+                </td>
+                <td>changed</td>
+                <td>
+                                                                        <div>Full name of the resource as known to BIG-IP.</div>
+                                                                <br/>
+                                            <div style="font-size: smaller"><b>Sample:</b></div>
+                                                <div style="font-size: smaller; color: blue; word-wrap: break-word; word-break: break-all;">/Common/wide1</div>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>name</b>
+                    <br/><div style="font-size: small; color: red">string</div>
+                </td>
+                <td>changed</td>
+                <td>
+                                                                        <div>Relative name of the resource in BIG-IP.</div>
+                                                                <br/>
+                                            <div style="font-size: smaller"><b>Sample:</b></div>
+                                                <div style="font-size: smaller; color: blue; word-wrap: break-word; word-break: break-all;">wide1</div>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>description</b>
+                    <br/><div style="font-size: small; color: red"></div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Description of the wide ip.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>enabled</b>
+                    <br/><div style="font-size: small; color: red">bool</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Whether the Wide IP is enabled.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>disabled</b>
+                    <br/><div style="font-size: small; color: red">bool</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Whether the Wide IP is disabled.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>failure_rcode</b>
+                    <br/><div style="font-size: small; color: red"></div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Specifies the DNS RCODE used when <code>failure_rcode_response</code> is <code>yes</code>.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>failure_rcode_response</b>
+                    <br/><div style="font-size: small; color: red">bool</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>When <code>yes</code>, specifies that the system returns a RCODE response to Wide IP requests after exhausting all load-balancing methods.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>failure_rcode_ttl</b>
+                    <br/><div style="font-size: small; color: red"></div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Specifies the negative caching TTL of the SOA for the RCODE response.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>last_resort_pool</b>
+                    <br/><div style="font-size: small; color: red"></div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Specifies which pool, as listed in Pool List, for the system to use as the last resort pool for the wide IP.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>minimal_response</b>
+                    <br/><div style="font-size: small; color: red"></div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Specifies that the system forms the smallest allowable DNS response to a query.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>persist_cidr_ipv4</b>
+                    <br/><div style="font-size: small; color: red"></div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Specifies the number of bits the system uses to identify IPv4 addresses when persistence is enabled.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>persist_cidr_ipv6</b>
+                    <br/><div style="font-size: small; color: red"></div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Specifies the number of bits the system uses to identify IPv6 addresses when persistence is enabled.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>pool_lb_mode</b>
+                    <br/><div style="font-size: small; color: red"></div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Specifies the load balancing method used to select a pool in this wide IP.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>ttl_persistence</b>
+                    <br/><div style="font-size: small; color: red"></div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Specifies, in seconds, the length of time for which the persistence entry is valid.</div>
+                                                                <br/>
+                                    </td>
+            </tr>
+                                <tr>
+                                    <td class="elbow-placeholder">&nbsp;</td>
+                                <td colspan="3">
+                    <b>pools</b>
+                    <br/><div style="font-size: small; color: red">complex</div>
+                </td>
+                <td></td>
+                <td>
+                                                                        <div>Specifies the pools that this wide IP uses for load balancing.</div>
                                                                 <br/>
                                     </td>
             </tr>

@@ -7,6 +7,9 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
+
+import sys
+
 from invoke import task
 from .lib.common import init
 from .lib.common import BASE_DIR
@@ -16,6 +19,8 @@ from .lib.common import AVAILABLE_PYTHON
 
 @task
 def prune(c):
+    """Remove all containers, images and volumes to reclaim space
+    """
     print("Reclaiming container space")
     c.run("docker container prune -f")
     print("\n")
@@ -31,6 +36,8 @@ def prune(c):
 
 @task
 def df(c):
+    """View the amount of space that images, containers, etc consume on the host machine
+    """
     c.run("docker system df")
 
 
@@ -45,8 +52,9 @@ def container_update(c):
 
     init()
     cmd = [
-        'docker-compose', '-f', '{0}/devtools/docker-compose.yaml'.format(BASE_DIR),
-        '-f {0}/docker-compose.site.yaml'.format(CONFIG_DIR),
+        'docker-compose',
+        '--file', '{0}/devtools/docker-compose.yaml'.format(BASE_DIR),
+        '--file {0}/docker-compose.site.yaml'.format(CONFIG_DIR),
         'pull'
     ]
     c.run(' '.join(cmd))
@@ -69,14 +77,10 @@ def run(c, python='3.6'):
         print("Allowed values are {0}".format(', '.join(AVAILABLE_PYTHON)))
         sys.exit(1)
 
-    try:
-        container_update(c)
-    except:
-        pass
-
     cmd = [
-        'docker-compose', '-f', '{0}/devtools/docker-compose.yaml'.format(BASE_DIR),
-        '-f {0}/docker-compose.site.yaml'.format(CONFIG_DIR),
+        'docker-compose',
+        '--file', '{0}/devtools/docker-compose.yaml'.format(BASE_DIR),
+        '--file {0}/docker-compose.site.yaml'.format(CONFIG_DIR),
         'run', 'py{0}'.format(python)
     ]
     c.run(' '.join(cmd), pty=True)

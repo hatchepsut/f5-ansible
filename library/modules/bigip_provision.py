@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
-# Copyright (c) 2017 F5 Networks Inc.
+# Copyright: (c) 2017, F5 Networks Inc.
 # GNU General Public License v3.0 (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 
 from __future__ import absolute_import, division, print_function
@@ -10,7 +10,7 @@ __metaclass__ = type
 
 ANSIBLE_METADATA = {'metadata_version': '1.1',
                     'status': ['stableinterface'],
-                    'supported_by': 'community'}
+                    'supported_by': 'certified'}
 
 DOCUMENTATION = r'''
 ---
@@ -117,7 +117,6 @@ try:
     try:
         from library.module_utils.network.f5.common import iControlUnexpectedHTTPError
         from f5.bigip.contexts import TransactionContextManager
-        from f5.sdk_exception import LazyAttributesRequired
     except ImportError:
         HAS_F5SDK = False
 except ImportError:
@@ -130,7 +129,6 @@ except ImportError:
     try:
         from ansible.module_utils.network.f5.common import iControlUnexpectedHTTPError
         from f5.bigip.contexts import TransactionContextManager
-        from f5.sdk_exception import LazyAttributesRequired
     except ImportError:
         HAS_F5SDK = False
 
@@ -220,7 +218,7 @@ class ModuleManager(object):
         self.want = ModuleParameters(params=self.module.params)
         self.changes = UsableChanges()
 
-    def _update_changed_options(self):
+    def _update_changed_options(self):  # lgtm [py/similar-function]
         diff = Difference(self.want, self.have)
         updatables = Parameters.updatables
         changed = dict()
@@ -644,8 +642,9 @@ def main():
     if not HAS_F5SDK:
         module.fail_json(msg="The python f5-sdk module is required")
 
+    client = F5Client(**module.params)
+
     try:
-        client = F5Client(**module.params)
         mm = ModuleManager(module=module, client=client)
         results = mm.exec_module()
         cleanup_tokens(client)

@@ -1,0 +1,12 @@
+---
+
+- name: Collect BIG-IP facts
+  bigip_device_facts:
+    include: system-info
+  register: f
+
+- name: Provision GTM on the device
+  bigip_provision:
+    module: gtm
+  tags:
+    - module-provisioning

@@ -7,9 +7,10 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
+
 ANSIBLE_METADATA = {'metadata_version': '1.1',
                     'status': ['preview'],
-                    'supported_by': 'community'}
+                    'supported_by': 'certified'}
 
 DOCUMENTATION = r'''
 ---
@@ -199,18 +200,35 @@ class Parameters(AnsibleF5Parameters):
     }
 
     api_attributes = [
-        'defaultsFrom', 'interval', 'timeout', 'destination', 'run', 'args',
+        'defaultsFrom',
+        'interval',
+        'timeout',
+        'destination',
+        'run',
+        'args',
         'description',
     ]
 
     returnables = [
-        'parent', 'ip', 'port', 'interval', 'timeout', 'variables', 'external_program',
-        'arguments', 'description',
+        'parent',
+        'ip',
+        'port',
+        'interval',
+        'timeout',
+        'variables',
+        'external_program',
+        'arguments',
+        'description',
     ]
 
     updatables = [
-        'destination', 'interval', 'timeout', 'variables', 'external_program',
-        'arguments', 'description',
+        'destination',
+        'interval',
+        'timeout',
+        'variables',
+        'external_program',
+        'arguments',
+        'description',
     ]
 
     @property
@@ -407,7 +425,7 @@ class Difference(object):
                 variables=self.want.variables
             )
         result = dict()
-        different = compare_dictionary([self.want.variables], [self.have.variables])
+        different = compare_dictionary(self.want.variables, self.have.variables)
         if not different:
             return None
 

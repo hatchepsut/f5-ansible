@@ -10,7 +10,7 @@ __metaclass__ = type
 
 ANSIBLE_METADATA = {'metadata_version': '1.1',
                     'status': ['stableinterface'],
-                    'supported_by': 'community'}
+                    'supported_by': 'certified'}
 
 DOCUMENTATION = r'''
 ---
@@ -103,64 +103,71 @@ EXAMPLES = r'''
 - name: Set the BIG-IP authentication realm name
   bigip_device_httpd:
     auth_name: BIG-IP
-    password: secret
-    server: lb.mydomain.com
-    user: admin
+    provider:
+      password: secret
+      server: lb.mydomain.com
+      user: admin
   delegate_to: localhost
 
 - name: Set the auth pam timeout to 3600 seconds
   bigip_device_httpd:
     auth_pam_idle_timeout: 1200
-    password: secret
-    server: lb.mydomain.com
-    user: admin
+    provider:
+      password: secret
+      server: lb.mydomain.com
+      user: admin
   delegate_to: localhost
 
 - name: Set the validate IP settings
   bigip_device_httpd:
     auth_pam_validate_ip: on
-    password: secret
-    server: lb.mydomain.com
-    user: admin
+    provider:
+      password: secret
+      server: lb.mydomain.com
+      user: admin
   delegate_to: localhost
 
 - name: Set SSL cipher suite by list
   bigip_device_httpd:
-    password: secret
-    server: lb.mydomain.com
-    user: admin
     ssl_cipher_suite:
       - ECDHE-RSA-AES128-GCM-SHA256
       - ECDHE-RSA-AES256-GCM-SHA384
       - ECDHE-RSA-AES128-SHA
       - AES256-SHA256
+    provider:
+      password: secret
+      server: lb.mydomain.com
+      user: admin
   delegate_to: localhost
 
 - name: Set SSL cipher suite by string
   bigip_device_httpd:
-    password: secret
-    server: lb.mydomain.com
-    user: admin
     ssl_cipher_suite: ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-SHA:AES256-SHA256
+    provider:
+      password: secret
+      server: lb.mydomain.com
+      user: admin
   delegate_to: localhost
 
 - name: Set SSL protocols by list
   bigip_device_httpd:
-    password: secret
-    server: lb.mydomain.com
-    user: admin
     ssl_protocols:
       - all
       - -SSLv2
       - -SSLv3
+    provider:
+      password: secret
+      server: lb.mydomain.com
+      user: admin
   delegate_to: localhost
 
 - name: Set SSL protocols by string
   bigip_device_httpd:
-    password: secret
-    server: lb.mydomain.com
-    user: admin
     ssl_cipher_suite: all -SSLv2 -SSLv3
+    provider:
+      password: secret
+      server: lb.mydomain.com
+      user: admin
   delegate_to: localhost
 '''
 
@@ -688,8 +695,10 @@ def main():
         client = F5RestClient(**module.params)
         mm = ModuleManager(module=module, client=client)
         results = mm.exec_module()
+        cleanup_tokens(client)
         exit_json(module, results, client)
     except F5ModuleError as ex:
+        cleanup_tokens(client)
         fail_json(module, ex, client)
 
 

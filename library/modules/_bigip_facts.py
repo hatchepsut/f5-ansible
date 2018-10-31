@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
-# Copyright (c) 2017 F5 Networks Inc.
-# Copyright (c) 2013 Matt Hite <mhite@hotmail.com>
+# Copyright: (c) 2017, F5 Networks Inc.
+# Copyright: (c) 2013, Matt Hite <mhite@hotmail.com>
 # GNU General Public License v3.0 (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 
 from __future__ import absolute_import, division, print_function
@@ -11,11 +11,11 @@ __metaclass__ = type
 
 ANSIBLE_METADATA = {'metadata_version': '1.1',
                     'status': ['deprecated'],
-                    'supported_by': 'community'}
+                    'supported_by': 'certified'}
 
 DOCUMENTATION = r'''
 ---
-module: _bigip_facts
+module: bigip_facts
 short_description: Collect facts from F5 BIG-IP devices
 description:
   - Collect facts from F5 BIG-IP devices via iControl SOAP API
@@ -31,7 +31,7 @@ notes:
   - C(provision) facts were added in 2.2
   - This module is deprecated. Use the C(bigip_device_facts) module instead.
 deprecated:
-  removed_in: 2.11
+  removed_in: '2.11'
   alternative: bigip_device_facts
   why: >
     The bigip_facts module relies on SOAP to communicate with the BIG-IP,
@@ -95,7 +95,7 @@ import traceback
 
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.six import string_types
-from ansible.module_utils.six.moves import map, zip
+from ansible.module_utils.six.moves import zip
 
 try:
     from library.module_utils.network.f5.legacy import bigip_api, bigsuds_found

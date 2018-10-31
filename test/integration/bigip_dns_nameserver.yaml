@@ -22,11 +22,11 @@
 - name: Metadata of bigip_dns_nameserver
   hosts: localhost
   connection: local
-  any_errors_fatal: true
+  gather_facts: false
 
   vars:
     __metadata__:
-      upstream: no
+      upstream: yes
       version: 1.2
       tested_versions:
         - NA
